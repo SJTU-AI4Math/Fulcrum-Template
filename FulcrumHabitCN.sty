@@ -1,0 +1,133 @@
+\usepackage{FulcrumCN}
+
+% font packages
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+% more math operators' support
+\usepackage{physics}
+
+% Boldface
+\usepackage{bm}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% Gaussian Elimination
+\usepackage{gauss}
+
+% Commutative Graph
+\usepackage[all]{xy}
+
+% Comment
+\usepackage{comment}
+
+% 文字颜色的命令
+\newcommand{\tc}[4][white]{{\fcolorbox{#1}{#2}{\textcolor{#3}{#4}}}} % 此命令接受四个参数，第一个参数为边框颜色，默认为白色，第二个参数为文字背景颜色，第三个参数为文字颜色，第四个参数为文字内容。如：\tc[green]{blue}{lime}{Hello,world!}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                            %------------- Mathematical Operators -------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% General
+\DeclareMathOperator{\N}{\mathbb{N}}                    % Set of Natural Numbers
+\DeclareMathOperator{\Z}{\mathbb{Z}}                    % Set of Integers
+\DeclareMathOperator{\Q}{\mathbb{Q}}                    % Set of Rational Numbers
+\DeclareMathOperator{\R}{\mathbb{R}}                    % Set of Real Numbers
+\DeclareMathOperator{\C}{\mathbb{C}}                    % Set of Complex Numbers
+
+\DeclareMathOperator{\Id}{Id}                           % Identity
+
+\DeclareMathOperator{\Ker}{Ker}                         % Kernel of a Homomorphism ($\ker$ is included in package amsmath)
+\DeclareMathOperator{\Image}{Im}                        % Image of a mapping
+
+% Set Theory
+\DeclareMathOperator{\PP}{\mathcal{P}}                  % Power Sets
+\DeclareMathOperator{\card}{card}                       % Cardinality
+
+% Category Theory
+\DeclareMathOperator{\Cat}{\mathcal{C}}                 % Category
+
+\DeclareMathOperator{\Hom}{Hom}                         % Set of Homomorphisms
+\DeclareMathOperator{\End}{End}                         % Set of Endomorphisms
+\DeclareMathOperator{\Aut}{Aut}                         % Set of Automorphisms
+\DeclareMathOperator{\Isom}{Isom}                       % Set of Isomorphisms
+
+\DeclareMathOperator{\Ob}{Ob}                           % Objects of a Category
+\DeclareMathOperator{\Mor}{Mor}                         % Morphisms of a Category
+
+% Abstract Algebra
+\DeclareMathOperator{\stab}{stab}                       % Stabilizer
+
+% Topology
+\DeclareMathOperator{\T}{\mathcal{T}}                   % Topology
+
+\DeclareMathOperator{\intr}{int}                        % Interior
+\DeclareMathOperator{\cl}{cl}                           % Closure
+
+\DeclareMathOperator{\U}{\overset{\circ}{\mathit{U}}}   % Deleted Neighbourhood
+
+% Linear Algebra
+
+\DeclareMathOperator{\K}{\mathbb{K}}                    % Number Field
+\DeclareMathOperator{\F}{\mathbb{F}}                    % Number Field (F)
+
+\DeclareMathOperator{\diag}{\text{diag}}                % Diagonal Matrix
+\DeclareMathOperator{\al}{\bm\alpha}                    % Boldfaced vector alpha
+\DeclareMathOperator{\bt}{\bm\beta}                     % Boldfaced vector beta
+\DeclareMathOperator{\x}{\bm{x}}                        % Boldfaced vector x
+\DeclareMathOperator{\0}{\mathbf{0}}                    % Boldfaced vector x
+
+\newcommand{\Jd}[2]{\mathrm{J}_{#1}{(#2)}}              % Jordan Blocks
+
+\DeclareMathOperator{\CCol}{Col}                        % Column Space
+\DeclareMathOperator{\RRow}{Row}                        % Row Space
+\DeclareMathOperator{\Null}{Null}                       % Null Space
+\DeclareMathOperator{\rmT}{\mathrm{T}}                  % Transpose
+
+\newcommand{\spn}{\mathrm{span}\text{ }}                % Span
+
+\DeclareMathOperator{\adj}{adj}                         % adj Matrix
+
+\newcommand{\GL}[2]{\mathrm{GL}_{#1}(#2)}               % General Linear Group
+\newcommand{\SL}[2]{\mathrm{SL}_{#1}(#2)}               % Special Linear Group
+
+\DeclareMathOperator{\lcm}{lcm}                         % LCM
+
+\newcommand{\<}{\langle}                                
+\renewcommand{\>}{\rangle}                              % These two for ordinary Hilbert Inner Products <x,y>
+\newcommand{\inprod}[2]{\left\<#1,#2\right\>}           % Using $\expval{#1}$ (Included in package physics) can replace \<#1\>.
+
+\newcommand{\ocinterval}[2]{\left(#1,#2\right]}         % Open-Closed Interval
+\newcommand{\cointerval}[2]{\left[#1,#2\right)}         % Closed-Open Interval
+\newcommand{\ccinterval}[2]{\left[#1,#2\right]}         % Closed-Closed Interval
+\newcommand{\oointerval}[2]{\left(#1,#2\right)}         % Open-Open 
+
+% Four above should be deprecated
+
+\newcommand{\Ioc}[2]{\left(#1,#2\right]}                % Open-Closed Interval
+\newcommand{\Ico}[2]{\left[#1,#2\right)}                % Closed-Open Interval
+\newcommand{\Icc}[2]{\left[#1,#2\right]}                % Closed Interval
+\newcommand{\Ioo}[2]{\left(#1,#2\right)}                % Open Interval
+
+% Mathematical Analysis
+
+\DeclareMathOperator*{\ulim}{\overline{\lim}}
+\DeclareMathOperator*{\llim}{\underline{\lim}}
+\newcommand{\diff}[3]{\left. #1 \right|_{#2}^{#3}}      % This command can be replaced by $\eval{#1}_{#2}^{#3}$ in package physics.
+
+\newcommand{\Ball}[2]{\mathcal{B}\left(#1,#2\right)}	% Open Ball
+
+% margin
+\usepackage{geometry}
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+\linespread{1.2}

@@ -1,0 +1,136 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{FulcrumCN}
+
+% margin
+\usepackage{geometry}
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+\linespread{1.2}
+
+\begin{document}
+    \begin{center}
+        {\LARGE\textbf{Fulcrum 宏包使用示例}}
+
+        SJTU AI4Math Team
+    \end{center}
+
+    \section{知识条目}
+
+    \subsection{色块表示}
+        
+        \begin{axm}
+            [TheAxiom]
+            {某个公理}
+            [The Axiom]
+            [猫猫]
+            这是一个很重要的公理. 
+
+            原则上公理应该很少. 
+        \end{axm}
+    
+        \begin{dfn}
+            [TheDefinition]
+            {某个定义}
+            [The Definition]
+            [猫猫]
+            这是定义的内容. 
+        \end{dfn}
+        
+        \begin{ppt}
+            [TheProperty]
+            {\hyperref[dfn:TheDefinition]{上面定义}的某条性质}
+            [A Property of \hyperref[dfn:TheDefinition]{The Definition}]
+            [猫猫]
+            这是\hyperref[dfn:TheDefinition]{上面那条定义}的性质. 
+
+            本质上来说, 性质也是定理. 一般来说, 性质条目紧跟\hyperref[dfn:TheDefinition]{定义条目}, 用来刻画那些很自然地由定义直接能够联想的性质, 而更为重要的主干定理才用\hyperref[thm:TheTheorem]{定理条目}表示. 
+        \end{ppt}
+        
+        \begin{xmp}
+            [TheExample]
+            {某个例子}
+            [The Example]
+            [猫猫]
+            这是服务于\hyperref[dfn:TheDefinition]{上面定义}的一个例子. 
+            
+            例子通常是为了帮助读者理解定义或定理内容而添加的, 理论上删去不影响主干理论框架的搭建. 
+        \end{xmp}
+        
+        \begin{lma}
+            [TheLemma]
+            {为\hyperref[thm:TheTheorem]{下条定理}服务的某个引理}
+            [The Lemma for \hyperref[thm:TheTheorem]{The Theorem}]
+            [猫猫]
+            这是为\hyperref[thm:TheTheorem]{下面一条定理}准备的一个引理. 
+            
+            在形式主义习惯下, 通常来说我们不鼓励索引定义顺序在本条之后的内容. 但直觉上, 这条引理是为\hyperref[thm:TheTheorem]{下面的定理}准备的, 所以我们不妨在这里索引它. 
+        \end{lma}
+        
+        \begin{thm}
+            [TheTheorem]
+            {某个定理}
+            [The Theorem]
+            [猫猫]
+            这是一个很重要的定理. 
+        \end{thm}
+            
+        \begin{prf}
+            这是\hyperref[thm:TheTheorem]{上面定理}的一个证明. 
+        \end{prf}
+        
+        \begin{crl}
+            [TheCorollary]
+            {\hyperref[thm:TheTheorem]{某个定理}的推论}
+            [The Corollary of \hyperref[thm:TheTheorem]{The Theorem}]
+            [猫猫]
+            这是\hyperref[thm:TheTheorem]{上面定理}的一个推论, 但又并未与定理独立而重要到值得单独写一条定理. 
+        \end{crl}
+        
+        \begin{cxmp}
+            [TheCounterExample]
+            {某个反例}
+            [The Counter Example]
+            [猫猫]
+            这是服务于\hyperref[thm:TheTheorem]{上面定理}的一个反例. 
+            
+            反例通常是为了帮助读者理解某个定义或定理必须添加适当约束的原因而添加的, 理论上删去不影响主干理论框架的搭建. 
+        \end{cxmp}
+
+    \section{Lean 语言支持}
+
+        \subsection{代码块}
+
+        
+        \begin{dfn}
+            [Cat]
+            {猫猫的定义}
+            [The Definition of Cat]
+            [猫猫]
+            Fulcrum 是一只猫猫! 
+            \begin{lstlisting}[style=lean]
+    def #tm{Fulcrum} : cat := some random cat
+            \end{lstlisting}
+
+            使用 \texttt{\#tm\{...\}} 来对被声明的定义/定理名进行染色
+        \end{dfn}
+        
+        \begin{thm}
+            [CatCuteTheorem]
+            {猫猫可爱定理}
+            [The Cat Cute Theorem]
+            [猫猫]
+            所有的猫猫都很可爱! 
+            \begin{lstlisting}[style=lean]
+    theorem th_name : ∀ (x : cat), x is very cute! := by sorry
+            \end{lstlisting}
+        \end{thm}
+
+
+
+\end{document}

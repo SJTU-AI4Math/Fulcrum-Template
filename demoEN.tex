@@ -1,0 +1,122 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{FulcrumEN}
+
+% margin
+\usepackage{geometry}
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+\linespread{1.0}
+
+\begin{document}
+    \begin{center}
+        {\LARGE\textbf{Fulcrum Package Usage Example}}
+
+        SJTU AI4Math Team
+    \end{center}
+    \section{Knowledge Entries}
+
+    \subsection{Color Block Representation}
+        
+        \begin{axm}
+            [TheAxiom]
+            {An Axiom}
+            [Cat]
+            This is a very important axiom.
+
+            In principle, there should be very few axioms.
+        \end{axm}
+    
+        \begin{dfn}
+            [TheDefinition]
+            {A Definition}
+            [Cat]
+            This is the content of the definition.
+        \end{dfn}
+        
+        \begin{ppt}
+            [TheProperty]
+            {A property of the \hyperref[dfn:TheDefinition]{above definition}}
+            [Cat]
+            This is a property of the \hyperref[dfn:TheDefinition]{above definition}.
+
+            Essentially, properties are also theorems. Generally, property entries follow the \hyperref[dfn:TheDefinition]{definition entry} closely, describing properties that can be naturally deduced from the definition, while more important main theorems are represented by the \hyperref[thm:TheTheorem]{theorem entry}.
+        \end{ppt}
+        
+        \begin{xmp}
+            [TheExample]
+            {An Example}
+            [Cat]
+            This is an example serving the \hyperref[dfn:TheDefinition]{above definition}.
+            
+            Examples are usually added to help readers understand the content of definitions or theorems, and theoretically, removing them does not affect the construction of the main theoretical framework.
+        \end{xmp}
+        
+        \begin{lma}
+            [TheLemma]
+            {A lemma serving the \hyperref[thm:TheTheorem]{theorem below}}
+            [Cat]
+            This is a lemma prepared for the \hyperref[thm:TheTheorem]{theorem below}.
+            
+            In formalist practice, we generally do not encourage referencing content that appears after the current entry. But intuitively, this lemma is prepared for the \hyperref[thm:TheTheorem]{theorem below}, so we reference it here.
+        \end{lma}
+        
+        \begin{thm}
+            [TheTheorem]
+            {A Theorem}
+            [Cat]
+            This is a very important theorem.
+        \end{thm}
+            
+        \begin{prf}
+            This is a proof of the \hyperref[thm:TheTheorem]{above theorem}.
+        \end{prf}
+        
+        \begin{crl}
+            [TheCorollary]
+            {A corollary of the \hyperref[thm:TheTheorem]{above theorem}}
+            [Cat]
+            This is a corollary of the \hyperref[thm:TheTheorem]{above theorem}, but it is not independent or important enough to be written as a separate theorem.
+        \end{crl}
+        
+        \begin{cxmp}
+            [TheCounterExample]
+            {A Counterexample}
+            [Cat]
+            This is a counterexample serving the \hyperref[thm:TheTheorem]{above theorem}.
+            
+            Counterexamples are usually added to help readers understand why certain constraints must be added to a definition or theorem, and theoretically, removing them does not affect the construction of the main theoretical framework.
+        \end{cxmp}
+
+    \section{Lean Language Support}
+
+        \subsection{Code Blocks}
+        
+        \begin{dfn}
+            [Cat]
+            {Definition of Cat}
+            [Cat]
+            Fulcrum is a cat!
+            \begin{lstlisting}[style=lean]
+    def #tm{Fulcrum} : cat := some random cat
+            \end{lstlisting}
+
+            Use \texttt{\#tm\{...\}} to color the declared definition/theorem name.
+        \end{dfn}
+        
+        \begin{thm}
+            [CatCuteTheorem]
+            {Cat Cute Theorem}
+            [Cat]
+            All cats are very cute!
+            \begin{lstlisting}[style=lean]
+    theorem th_name : ∀ (x : cat), x is very cute! := by sorry
+            \end{lstlisting}
+        \end{thm}
+
+\end{document}

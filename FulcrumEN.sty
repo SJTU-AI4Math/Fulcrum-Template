@@ -1,0 +1,433 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                %------------- Fulcrum -------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% This package is made by Yuntian Liu from SJTU AI4Math Team. 
+% The original intention is to provide support for knowledge-block style mathematical notes. Later it's extended to support Lean 4 code writing. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                %------------- Color Blocks -------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ———————————————————————————————————— Custom Colors ————————————————————————————————————
+\usepackage{xcolor}
+
+\definecolor{dfn_green1}{RGB}{0, 156, 39}       % Dark Green
+\definecolor{dfn_green2}{RGB}{214, 254, 224}    % Light Green
+
+\definecolor{thm_blue1}{RGB}{0, 91, 156}        % Dark Blue
+\definecolor{thm_blue2}{RGB}{218, 240, 255}     % Light Blue
+
+\definecolor{ppt_pink1}{RGB}{172, 0, 175}       % Dark Pink
+\definecolor{ppt_pink2}{RGB}{255, 237, 255}     % Light Pink
+
+\definecolor{crl_orange1}{RGB}{225, 124, 0}     % Dark Orange
+\definecolor{crl_orange2}{RGB}{255, 235, 210}   % Light Orange
+
+\definecolor{xmp_purple1}{RGB}{119, 0, 229}     % Dark Purple
+\definecolor{xmp_purple2}{RGB}{239, 223, 255}   % Light Purple
+
+\definecolor{cxmp_red1}{RGB}{211, 0, 35}        % Dark Red
+\definecolor{cxmp_red2}{RGB}{255, 214, 220}     % Light Red
+
+\definecolor{prf_grey1}{RGB}{120, 120, 120}     % Dark Grey
+\definecolor{prf_grey2}{RGB}{233, 233, 233}     % Light Grey
+
+\definecolor{axm_yellow1}{RGB}{192, 192, 0}     % Dark Yellow
+\definecolor{axm_yellow2}{RGB}{255, 255, 172}   % Light Yellow
+
+% ———————————————————————————————————— Custom Colors ————————————————————————————————————
+
+% ———————————————————————————————————— Box Settings ————————————————————————————————————
+
+\usepackage{tcolorbox}
+\tcbuselibrary{most}
+
+\newenvironment{entry}[2]
+    {
+    \begin{tcolorbox}[enhanced, colback=#2, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{#1},breakable]
+    }
+    {\end{tcolorbox}}
+
+
+% ———————————————————————————————————— Settings ————————————————————————————————————
+
+% ———————————————————————————————————— Theorem Style ————————————————————————————————————
+% Theorem support
+\usepackage{amsthm}
+
+% Reference support
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan
+} 
+
+% Better command / environment support
+\usepackage{xparse}
+
+\newtheoremstyle{MyStyle}{0pt}{}{}{\parindent}{\bfseries}{}{1em}{}
+
+\theoremstyle{MyStyle}
+
+% #1 (Optional) UUID of the Entry
+% #2 The Title of the Entry
+% #3 Contributor to the entry
+
+\newtheorem{axiom}{Axiom}[section]
+\NewDocumentEnvironment{axm}{omo}
+{
+    \begin{entry}{axm_yellow1}{axm_yellow2}
+        \begin{axiom}
+            \textbf{#2\label{axm:#1}}
+            \newline
+}
+{
+        \end{axiom}
+    \end{entry}
+}
+
+\newtheorem{definition}{Definition}[subsection]
+\NewDocumentEnvironment{dfn}{omo}
+{
+    \begin{entry}{dfn_green1}{dfn_green2}
+        \begin{definition}
+            \textbf{#2\label{dfn:#1}}
+            \newline
+}
+{
+        \end{definition}
+    \end{entry}
+}
+
+\newtheorem{property}{Property}[definition]
+\NewDocumentEnvironment{ppt}{omo}
+{
+    \begin{entry}{ppt_pink1}{ppt_pink2}
+        \begin{property}
+            \textbf{#2\label{ppt:#1}}
+            \newline
+}
+{
+        \end{property}
+    \end{entry}
+}
+
+\newtheorem{lemma}[definition]{Lemma}
+\NewDocumentEnvironment{lma}{omo}
+{
+    \begin{entry}{thm_blue1}{thm_blue2}
+        \begin{lemma}
+            \textbf{#2\label{lma:#1}}
+            \newline
+}
+{
+        \end{lemma}
+    \end{entry}
+}
+
+\newtheorem{theorem}[definition]{Theorem}
+\NewDocumentEnvironment{thm}{omo}
+{
+    \begin{entry}{thm_blue1}{thm_blue2}
+        \begin{theorem}
+            \textbf{#2\label{thm:#1}}
+            \newline
+}
+{
+        \end{theorem}
+    \end{entry}
+}
+
+\newtheorem{corollary}[definition]{Corollary}
+\NewDocumentEnvironment{crl}{omo}
+{
+    \begin{entry}{crl_orange1}{crl_orange2}
+        \begin{corollary}
+            \textbf{#2\label{crl:#1}}
+            \newline
+}
+{
+        \end{corollary}
+    \end{entry}
+}
+
+\newtheorem*{myproof}{Proof: \newline}
+\newenvironment{prf}
+{
+    \begin{entry}{prf_grey1}{prf_grey2}
+        \begin{myproof}
+}
+{
+        \end{myproof}
+    \end{entry}
+}
+
+\newtheorem{example}{Example}[subsection]
+\NewDocumentEnvironment{xmp}{omo}
+{
+    \begin{entry}{xmp_purple1}{xmp_purple2}
+        \begin{example}
+            \textbf{#2\label{xmp:#1}}
+            \newline
+}
+{
+        \end{example}
+    \end{entry}
+}
+
+\newtheorem{cexample}{Counter Example}[subsection]
+\NewDocumentEnvironment{cxmp}{omo}
+{
+    \begin{entry}{cxmp_red1}{cxmp_red2}
+        \begin{cexample}
+            \textbf{#2\label{cxmp:#1}}
+            \newline
+}
+{
+        \end{cexample}
+    \end{entry}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                %------------- Lean Code -------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{listings}
+\newcommand{\smallsec}[1]{\paragraph{#1.}}
+\lstset{
+    basicstyle = \ttfamily,
+}
+
+% Define Colors: 
+\definecolor{leanblue}{RGB}{0,0,255}
+\colorlet{keyword}{leanblue}
+\colorlet{punct}{leanblue}
+
+\definecolor{sorry}{RGB}{255,0,0}
+\definecolor{comment}{RGB}{0,128,0}
+\definecolor{string}{RGB}{163,21,21}
+\definecolor{num}{RGB}{9,134,88}
+
+\definecolor{thname}{RGB}{121,94,38}
+
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+
+\newcommand*{\lean}[1]{\texttt{\color{blue}#1}}
+
+\lstdefinelanguage{lean}{
+    % Define Keywords: 
+    alsoletter = {\#,\?,.},
+    keywords = {
+        import, 
+        namespace, 
+        end, 
+        open, 
+        variable, 
+        Prop, 
+        Type, 
+        % Declarations: 
+        protected, 
+        class, 
+        instance, 
+        def, 
+        axiom, 
+        example, 
+        theorem, 
+        lemma, 
+        fun, 
+        by, 
+        % Basics: 
+        \#check, 
+        \#leansearch, 
+        \#eval, 
+        % Tactics: 
+        exact, 
+            % FOL: 
+            intro,
+            intros, 
+            rintro, 
+            apply,
+            refine, 
+            apply?, 
+            constructor, 
+            rcases, 
+            obtain, 
+            use, 
+            left, 
+            right, 
+            cases, 
+            case, 
+            by\_cases, 
+            by\_contra, 
+            contrapose, 
+            contrapose!,
+            % Others: 
+            symm, 
+            calc, 
+            unfold, 
+            have, 
+            let, 
+            rw, 
+            at, 
+            change, 
+            show, 
+        }, 
+    keywords = [2]{sorry}, 
+    %
+    numbers=left,
+    numberstyle=\color{num},
+    %
+    % morecomment = [l]{--},
+    moredelim=[l][\color{comment}]{--}, % morecomment -> moredelim, so that Unicode characters can be used in comments. 
+    moredelim=[is][\color{thname}]{\#tm\{}{\}}, 
+    morecomment = [s]{/-}{-/},
+    commentstyle = \color{comment}, 
+    %
+    stringstyle = \color{string}, 
+    %
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+    % Keywords
+        {th\_name}{{{\color{thname}th\_name}}}{7}
+    % Math Symbols
+        {ℕ}{{\ensuremath{\mathbb{N}}}}{1}
+        {ℤ}{{\ensuremath{\mathbb{Z}}}}{1}
+        {ℝ}{{\ensuremath{\mathbb{R}}}}{1}
+        {ℚ}{{\ensuremath{\mathbb{Q}}}}{1}
+        {ℂ}{{\ensuremath{\mathbb{C}}}}{1}
+        {∩}{{\ensuremath{\cap}}}{1}
+        {∪}{{\ensuremath{\cup}}}{1}
+        {⊂}{{\ensuremath{\subseteq}}}{1}
+        {⊆}{{\ensuremath{\subseteq}}}{1}
+        {⊄}{{\ensuremath{\nsubseteq}}}{1}
+        {⊈}{{\ensuremath{\nsubseteq}}}{1}
+        {⊃}{{\ensuremath{\supseteq}}}{1}
+        {⊇}{{\ensuremath{\supseteq}}}{1}
+        {⊅}{{\ensuremath{\nsupseteq}}}{1}
+        {⊉}{{\ensuremath{\nsupseteq}}}{1}
+        {∈}{{\ensuremath{\in}}}{1}
+        {∉}{{\ensuremath{\notin}}}{1}
+        {∋}{{\ensuremath{\ni}}}{1}
+        {∌}{{\ensuremath{\notni}}}{1}
+        {∅}{{\ensuremath{\emptyset}}}{1}
+        {∫}{{\ensuremath{\int}}}{1}
+        {∑}{{\ensuremath{\mathrm{\Sigma}}}}{1}
+        {Π}{{\ensuremath{\mathrm{\Pi}}}}{1}
+        {≤}{{\ensuremath{\leq}}}{1}
+        {≥}{{\ensuremath{\geq}}}{1}
+        {≠}{{\ensuremath{\neq}}}{1}
+        {≈}{{\ensuremath{\approx}}}{1}
+        {≡}{{\ensuremath{\equiv}}}{1}
+        {≃}{{\ensuremath{\simeq}}}{1}
+    % Greek Letters lowercase
+        {α}{{\ensuremath{\mathrm{\alpha}}}}{1}
+        {β}{{\ensuremath{\mathrm{\beta}}}}{1}
+        {γ}{{\ensuremath{\mathrm{\gamma}}}}{1}
+        {δ}{{\ensuremath{\mathrm{\delta}}}}{1}
+        {ε}{{\ensuremath{\mathrm{\varepsilon}}}}{1}
+        {ζ}{{\ensuremath{\mathrm{\zeta}}}}{1}
+        {η}{{\ensuremath{\mathrm{\eta}}}}{1}
+        {θ}{{\ensuremath{\mathrm{\theta}}}}{1}
+        {ι}{{\ensuremath{\mathrm{\iota}}}}{1}
+        {κ}{{\ensuremath{\mathrm{\kappa}}}}{1}
+        {μ}{{\ensuremath{\mathrm{\mu}}}}{1}
+        {ν}{{\ensuremath{\mathrm{\nu}}}}{1}
+        {ξ}{{\ensuremath{\mathrm{\xi}}}}{1}
+        {π}{{\ensuremath{\mathrm{\mathnormal{\pi}}}}}{1}
+        {ρ}{{\ensuremath{\mathrm{\rho}}}}{1}
+        {σ}{{\ensuremath{\mathrm{\sigma}}}}{1}
+        {τ}{{\ensuremath{\mathrm{\tau}}}}{1}
+        {φ}{{\ensuremath{\mathrm{\varphi}}}}{1}
+        {χ}{{\ensuremath{\mathrm{\chi}}}}{1}
+        {ψ}{{\ensuremath{\mathrm{\psi}}}}{1}
+        {ω}{{\ensuremath{\mathrm{\omega}}}}{1}
+    % Greek Letters UPPERCASE
+        {Γ}{{\ensuremath{\mathrm{\Gamma}}}}{1}
+        {Δ}{{\ensuremath{\mathrm{\Delta}}}}{1}
+        {Θ}{{\ensuremath{\mathrm{\Theta}}}}{1}
+        {Λ}{{\ensuremath{\mathrm{\Lambda}}}}{1}
+        {Σ}{{\ensuremath{\mathrm{\Sigma}}}}{1}
+        {Φ}{{\ensuremath{\mathrm{\Phi}}}}{1}
+        {Ξ}{{\ensuremath{\mathrm{\Xi}}}}{1}
+        {Ψ}{{\ensuremath{\mathrm{\Psi}}}}{1}
+        {Ω}{{\ensuremath{\mathrm{\Omega}}}}{1}
+    % Arrows
+        {↦}{{\ensuremath{\mapsto}}}{1}
+        {←}{{\ensuremath{\leftarrow}}}{1}
+        {<-}{{\ensuremath{\leftarrow}}}{1}
+        {→}{{\ensuremath{\rightarrow}}}{1}
+        {->}{{\ensuremath{\rightarrow}}}{1}
+        {↔}{{\ensuremath{\leftrightarrow}}}{1}
+        {<->}{{\ensuremath{\leftrightarrow}}}{1}
+        {⇒}{{\ensuremath{\Rightarrow}}}{1}
+        {⟹}{{\ensuremath{\Longrightarrow}}}{1}
+        {⇐}{{\ensuremath{\Leftarrow}}}{1}
+        {⟸}{{\ensuremath{\Longleftarrow}}}{1}
+        {Σ}{{\ensuremath{\Sigma}}}{1}
+        {Π}{{\ensuremath{\Pi}}}{1}
+        {∀}{{\ensuremath{\forall}}}{1}
+        {∃}{{\ensuremath{\exists}}}{1}
+        {λ}{{\ensuremath{\mathrm{\lambda}}}}{1}
+        {∧}{{\ensuremath{\wedge}}}{1}
+        {∨}{{\ensuremath{\vee}}}{1}
+        {¬}{{\ensuremath{\neg}}}{1}
+        {⊢}{{\ensuremath{\vdash}}}{1}
+        {‖}{{\ensuremath{\|}}}{1}
+    % subscripts
+        {₁}{{\ensuremath{_1}}}{1}
+        {₂}{{\ensuremath{_2}}}{1}
+        {₃}{{\ensuremath{_3}}}{1}
+        {₄}{{\ensuremath{_4}}}{1}
+        {₅}{{\ensuremath{_5}}}{1}
+        {₆}{{\ensuremath{_6}}}{1}
+        {₇}{{\ensuremath{_7}}}{1}
+        {₈}{{\ensuremath{_8}}}{1}
+        {₉}{{\ensuremath{_9}}}{1}
+        {₀}{{\ensuremath{_0}}}{1}
+        {ᵢ}{{\ensuremath{_i}}}{1}
+        {ⱼ}{{\ensuremath{_j}}}{1}
+        {ₐ}{{\ensuremath{_a}}}{1}
+        {⁻¹}{{\ensuremath{^{-1}}}}{1}
+        {¹}{{\ensuremath{^1}}}{1}
+        {ₙ}{{\ensuremath{_n}}}{1}
+        {ₘ}{{\ensuremath{_m}}}{1}
+        {ₚ}{{\ensuremath{_p}}}{1}
+    % Others
+        {↑}{{\ensuremath{\uparrow}}}{1}
+        {↓}{{\ensuremath{\downarrow}}}{1}
+        {⊢}{{\ensuremath{\vdash}}}{1}
+        {|-}{{\ensuremath{\vdash}}}{1}
+        {⊥}{{\ensuremath{\perp}}}{1}
+        {∞}{{\ensuremath{\infty}}}{1}
+        {∂}{{\ensuremath{\partial}}}{1}
+        {√}{{\ensuremath{\sqrt}}}{1}
+        {∘}{{\ensuremath{\circ}}}{1}
+        {×}{{\ensuremath{\times}}}{1}
+        {∆}{{\ensuremath{\triangle}}}{1}
+        {⟨}{{\ensuremath{\color{leanblue}\langle}}}{1}
+        {⟩}{{\ensuremath{\color{leanblue}\rangle}}}{1}
+        {⦃}{{\ensuremath{\color{leanblue}\{\!|}}}{1}
+        {⦄}{{\ensuremath{\color{leanblue}|\!\}}}}{1}
+        {ℒ}{{\ensuremath{\mathscr{L}}}}{1}
+        {𝒫}{{\ensuremath{\mathcal{P}}}}{1}
+        {·}{{\ensuremath{\cdot}}}{1},
+}
+
+\lstdefinestyle{lean}{
+    language=lean,
+    numbers=none, 
+    keywordstyle=\color{leanblue},
+    keywordstyle=[2]\color{sorry},
+    % frame=none,
+    backgroundcolor=\color{white}, 
+}
