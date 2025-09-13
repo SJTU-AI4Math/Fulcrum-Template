@@ -83,8 +83,7 @@
 {
     \begin{entry}{axm_yellow1}{axm_yellow2}
         \begin{axiom}
-            \textbf{#2\label{axm:#1}
-                \ifx\relax#3\relax\else(#3)\fi}
+            \textbf{#2\label{axm:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
 }
 {
@@ -97,10 +96,7 @@
 {
     \begin{entry}{dfn_green1}{dfn_green2}
         \begin{definition}
-            \textbf{#2\label{dfn:#1}
-                \ifx\relax#3\relax\else
-                    (#3)
-                \fi}
+            \textbf{#2\label{dfn:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
 }
 {
@@ -113,10 +109,7 @@
 {
     \begin{entry}{ppt_pink1}{ppt_pink2}
         \begin{property}
-            \textbf{#2\label{ppt:#1}
-                \ifx\relax#3\relax\else
-                    (#3)
-                \fi}
+            \textbf{#2\label{ppt:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
 }
 {
@@ -129,10 +122,7 @@
 {
     \begin{entry}{thm_blue1}{thm_blue2}
         \begin{lemma}
-            \textbf{#2\label{lma:#1}
-                \ifx\relax#3\relax\else
-                    (#3)
-                \fi}
+            \textbf{#2\label{lma:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
 }
 {
@@ -145,10 +135,7 @@
 {
     \begin{entry}{thm_blue1}{thm_blue2}
         \begin{theorem}
-            \textbf{#2\label{thm:#1}
-                \ifx\relax#3\relax\else
-                    (#3)
-                \fi}
+            \textbf{#2\label{thm:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
 }
 {
@@ -161,10 +148,7 @@
 {
     \begin{entry}{crl_orange1}{crl_orange2}
         \begin{corollary}
-            \textbf{#2\label{crl:#1}
-                \ifx\relax#3\relax\else
-                    (#3)
-                \fi}
+            \textbf{#2\label{crl:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
 }
 {
@@ -188,10 +172,7 @@
 {
     \begin{entry}{xmp_purple1}{xmp_purple2}
         \begin{example}
-            \textbf{#2\label{xmp:#1}
-                \ifx\relax#3\relax\else
-                    (#3)
-                \fi}
+            \textbf{#2\label{xmp:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
 }
 {
@@ -204,10 +185,7 @@
 {
     \begin{entry}{cxmp_red1}{cxmp_red2}
         \begin{cexample}
-            \textbf{#2\label{cxmp:#1}
-                \ifx\relax#3\relax\else
-                    (#3)
-                \fi}
+            \textbf{#2\label{cxmp:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
 }
 {
