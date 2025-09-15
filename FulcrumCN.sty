@@ -12,29 +12,29 @@
 % ———————————————————————————————————— Custom Colors ————————————————————————————————————
 \usepackage{xcolor}
 
-\definecolor{dfn_green1}{RGB}{0, 156, 39}       % Dark Green
-\definecolor{dfn_green2}{RGB}{214, 254, 224}    % Light Green
+\definecolor{green1}{RGB}{0, 156, 39}       % Dark Green
+\definecolor{green2}{RGB}{214, 254, 224}    % Light Green
 
-\definecolor{thm_blue1}{RGB}{0, 91, 156}        % Dark Blue
-\definecolor{thm_blue2}{RGB}{218, 240, 255}     % Light Blue
+\definecolor{blue1}{RGB}{0, 91, 156}        % Dark Blue
+\definecolor{blue2}{RGB}{218, 240, 255}     % Light Blue
 
-\definecolor{ppt_pink1}{RGB}{172, 0, 175}       % Dark Pink
-\definecolor{ppt_pink2}{RGB}{255, 237, 255}     % Light Pink
+\definecolor{pink1}{RGB}{172, 0, 175}       % Dark Pink
+\definecolor{pink2}{RGB}{255, 237, 255}     % Light Pink
 
-\definecolor{crl_orange1}{RGB}{225, 124, 0}     % Dark Orange
-\definecolor{crl_orange2}{RGB}{255, 235, 210}   % Light Orange
+\definecolor{orange1}{RGB}{225, 124, 0}     % Dark Orange
+\definecolor{orange2}{RGB}{255, 235, 210}   % Light Orange
 
-\definecolor{xmp_purple1}{RGB}{119, 0, 229}     % Dark Purple
-\definecolor{xmp_purple2}{RGB}{239, 223, 255}   % Light Purple
+\definecolor{purple1}{RGB}{119, 0, 229}     % Dark Purple
+\definecolor{purple2}{RGB}{239, 223, 255}   % Light Purple
 
-\definecolor{cxmp_red1}{RGB}{211, 0, 35}        % Dark Red
-\definecolor{cxmp_red2}{RGB}{255, 214, 220}     % Light Red
+\definecolor{red1}{RGB}{211, 0, 35}        % Dark Red
+\definecolor{red2}{RGB}{255, 214, 220}     % Light Red
 
-\definecolor{prf_grey1}{RGB}{120, 120, 120}     % Dark Grey
-\definecolor{prf_grey2}{RGB}{233, 233, 233}     % Light Grey
+\definecolor{grey1}{RGB}{120, 120, 120}     % Dark Grey
+\definecolor{grey2}{RGB}{233, 233, 233}     % Light Grey
 
-\definecolor{axm_yellow1}{RGB}{192, 192, 0}     % Dark Yellow
-\definecolor{axm_yellow2}{RGB}{255, 255, 172}   % Light Yellow
+\definecolor{yellow1}{RGB}{192, 192, 0}     % Dark Yellow
+\definecolor{yellow2}{RGB}{255, 255, 172}   % Light Yellow
 
 % ———————————————————————————————————— Custom Colors ————————————————————————————————————
 
@@ -81,7 +81,7 @@
 \newtheorem{axiom}{公理}[section]
 \NewDocumentEnvironment{axm}{omoo}
 {
-    \begin{entry}{axm_yellow1}{axm_yellow2}
+    \begin{entry}{yellow1}{yellow2}
         \begin{axiom}
             \textbf{#2\label{axm:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
@@ -94,7 +94,7 @@
 \newtheorem{definition}{定义}[subsection]
 \NewDocumentEnvironment{dfn}{omoo}
 {
-    \begin{entry}{dfn_green1}{dfn_green2}
+    \begin{entry}{green1}{green2}
         \begin{definition}
             \textbf{#2\label{dfn:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
@@ -107,7 +107,7 @@
 \newtheorem{property}{性质}[definition]
 \NewDocumentEnvironment{ppt}{omoo}
 {
-    \begin{entry}{ppt_pink1}{ppt_pink2}
+    \begin{entry}{pink1}{pink2}
         \begin{property}
             \textbf{#2\label{ppt:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
@@ -120,7 +120,7 @@
 \newtheorem{lemma}[definition]{引理}
 \NewDocumentEnvironment{lma}{omoo}
 {
-    \begin{entry}{thm_blue1}{thm_blue2}
+    \begin{entry}{blue1}{blue2}
         \begin{lemma}
             \textbf{#2\label{lma:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
@@ -133,7 +133,7 @@
 \newtheorem{theorem}[definition]{定理}
 \NewDocumentEnvironment{thm}{omoo}
 {
-    \begin{entry}{thm_blue1}{thm_blue2}
+    \begin{entry}{blue1}{blue2}
         \begin{theorem}
             \textbf{#2\label{thm:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
@@ -143,10 +143,10 @@
     \end{entry}
 }
 
-\newtheorem{corollary}[definition]{推论}
+\newtheorem{corollary}{推论}[definition]
 \NewDocumentEnvironment{crl}{omoo}
 {
-    \begin{entry}{crl_orange1}{crl_orange2}
+    \begin{entry}{purple1}{purple2}
         \begin{corollary}
             \textbf{#2\label{crl:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
@@ -159,7 +159,7 @@
 \newtheorem*{myproof}{证明: \newline}
 \newenvironment{prf}
 {
-    \begin{entry}{prf_grey1}{prf_grey2}
+    \begin{entry}{grey1}{grey2}
         \begin{myproof}
 }
 {
@@ -167,10 +167,10 @@
     \end{entry}
 }
 
-\newtheorem{example}{ 例\, }[subsection]
+\newtheorem{example}[definition]{ 例\, }
 \NewDocumentEnvironment{xmp}{omoo}
 {
-    \begin{entry}{xmp_purple1}{xmp_purple2}
+    \begin{entry}{purple1}{purple2}
         \begin{example}
             \textbf{#2\label{xmp:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
@@ -180,16 +180,50 @@
     \end{entry}
 }
 
-\newtheorem{cexample}{反例}[subsection]
+\newtheorem{cexample}[definition]{反例}
 \NewDocumentEnvironment{cxmp}{omoo}
 {
-    \begin{entry}{cxmp_red1}{cxmp_red2}
+    \begin{entry}{red1}{red2}
         \begin{cexample}
             \textbf{#2\label{cxmp:#1}\IfNoValueTF{#3}{}{ (#3)}}
             \newline
 }
 {
         \end{cexample}
+    \end{entry}
+}
+
+\newtheorem{remark}{ 注\, }[definition]
+\NewDocumentEnvironment{rmk}{o}
+{
+    \begin{entry}{orange1}{orange2}
+        \begin{remark}
+}
+{
+        \end{remark}
+    \end{entry}
+}
+
+\newtheorem{problem}{题目}
+\NewDocumentEnvironment{pbm}{o}
+{
+    \begin{entry}{blue1}{blue2}
+        \IfNoValueTF{#1}{}{\setcounter{problem}{#1}\addtocounter{problem}{-1}}
+        \begin{problem}
+}
+{
+        \end{problem}
+    \end{entry}
+}
+
+\newtheorem*{solution}{解答: \newline}
+\newenvironment{slt}
+{
+    \begin{entry}{grey1}{grey2}
+        \begin{solution}
+}
+{
+        \end{solution}
     \end{entry}
 }
 
