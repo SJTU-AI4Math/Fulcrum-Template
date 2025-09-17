@@ -54,19 +54,6 @@
 % #3: 算子表达式
 % #4: 脚注内容
 
-\NewDocumentCommand{\FulcrumBinOp}{smmmm}{%
-    \IfBooleanTF{#1}%
-        {\RenewDocumentCommand{#2}{soo}{%
-            \@ifundefined{r@dfn:#3}%
-            {\IfNoValueTF{#3}%
-                {#4\footnote{#4: 未定义}}%
-                {#4}%
-            }%
-            {\hyperref[dfn:#3]{}}%
-        }}%
-        {}%
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                             %------------- Mathematical Operators -------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,15 +84,3 @@
 % 二元对
 \NewDocumentCommand{\pair}{smm}{\catref[#1]{dfn:OrderedPair}{\ensuremath{\left(#2,#3\right)}}[有序对]}
 \NewDocumentCommand{\triplet}{smmm}{\catref[#1]{dfn:OrderedTriplet}{\ensuremath{\left(#2,#3,#4\right)}}[有序三元组]}
-
-
-
-
-
-%Apology
-\DeclareMathOperator{\Con}{Con}
-\DeclareMathOperator{\V}{\mathcal{V}}  
-
-
-
-% Linear Algebra
