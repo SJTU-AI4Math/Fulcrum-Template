@@ -42,8 +42,8 @@
 \NewDocumentCommand{\catref}{ommo}{%
     \@ifundefined{r@#2}%
     {\IfBooleanTF{#1}%
-        {#3\footnote{#3: \IfNoValueTF{#4}{未定义}{#4}}}%
-        {#3}%
+        {{\color{purple}{#3}}\footnote{#3: \IfNoValueTF{#4}{未定义}{#4}}}%
+        {{\color{purple}{#3}}}%
     }%
     {\hyperref[#2]{#3}}%
 }
