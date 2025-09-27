@@ -79,12 +79,12 @@
 % #4 Contributor to the entry
 
 \newtheorem{axiom}{公理}[section]
-\NewDocumentEnvironment{axm}{omoo}
+\NewDocumentEnvironment{axm}{omoos}
 {
     \begin{entry}{yellow1}{yellow2}
         \begin{axiom}
             \textbf{#2\label{axm:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{axiom}
@@ -92,12 +92,12 @@
 }
 
 \newtheorem{rulethm}{规则}[section]
-\NewDocumentEnvironment{rul}{omoo}
+\NewDocumentEnvironment{rul}{omoos}
 {
     \begin{entry}{yellow1}{yellow2}
         \begin{rulethm}
             \textbf{#2\label{rul:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{rulethm}
@@ -105,12 +105,12 @@
 }
 
 \newtheorem{definition}{定义}[subsection]
-\NewDocumentEnvironment{dfn}{omoo}
+\NewDocumentEnvironment{dfn}{omoos}
 {
     \begin{entry}{green1}{green2}
         \begin{definition}
             \textbf{#2\label{dfn:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{definition}
@@ -119,12 +119,12 @@
 
 
 \newtheorem{structure}{结构}[subsection]
-\NewDocumentEnvironment{str}{omoo}
+\NewDocumentEnvironment{str}{omoos}
 {
     \begin{entry}{green1}{green2}
         \begin{structure}
             \textbf{#2\label{str:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{structure}
@@ -132,12 +132,12 @@
 }
 
 \newtheorem{property}{性质}[definition]
-\NewDocumentEnvironment{ppt}{omoo}
+\NewDocumentEnvironment{ppt}{omoos}
 {
     \begin{entry}{pink1}{pink2}
         \begin{property}
             \textbf{#2\label{ppt:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{property}
@@ -145,12 +145,12 @@
 }
 
 \newtheorem{lemma}[definition]{引理}
-\NewDocumentEnvironment{lma}{omoo}
+\NewDocumentEnvironment{lma}{omoos}
 {
     \begin{entry}{blue1}{blue2}
         \begin{lemma}
             \textbf{#2\label{lma:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{lemma}
@@ -158,12 +158,12 @@
 }
 
 \newtheorem{theorem}[definition]{定理}
-\NewDocumentEnvironment{thm}{omoo}
+\NewDocumentEnvironment{thm}{omoos}
 {
     \begin{entry}{blue1}{blue2}
         \begin{theorem}
             \textbf{#2\label{thm:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{theorem}
@@ -171,12 +171,12 @@
 }
 
 \newtheorem{corollary}{推论}[definition]
-\NewDocumentEnvironment{crl}{omoo}
+\NewDocumentEnvironment{crl}{omoos}
 {
     \begin{entry}{purple1}{purple2}
         \begin{corollary}
             \textbf{#2\label{crl:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{corollary}
@@ -195,12 +195,12 @@
 }
 
 \newtheorem{example}[definition]{ 例\, }
-\NewDocumentEnvironment{xmp}{omoo}
+\NewDocumentEnvironment{xmp}{omoos}
 {
     \begin{entry}{purple1}{purple2}
         \begin{example}
             \textbf{#2\label{xmp:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{example}
@@ -208,12 +208,12 @@
 }
 
 \newtheorem{cexample}[definition]{反例}
-\NewDocumentEnvironment{cxmp}{omoo}
+\NewDocumentEnvironment{cxmp}{omoos}
 {
     \begin{entry}{red1}{red2}
         \begin{cexample}
             \textbf{#2\label{cxmp:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
-            \newline
+            \IfBooleanTF{#5}{}{\newline}
 }
 {
         \end{cexample}
