@@ -91,6 +91,19 @@
     \end{entry}
 }
 
+\newtheorem{rulethm}{规则}[section]
+\NewDocumentEnvironment{rule}{omoo}
+{
+    \begin{entry}{yellow1}{yellow2}
+        \begin{rulethm}
+            \textbf{#2\label{rule:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
+            \newline
+}
+{
+        \end{rulethm}
+    \end{entry}
+}
+
 \newtheorem{definition}{定义}[subsection]
 \NewDocumentEnvironment{dfn}{omoo}
 {
@@ -101,6 +114,20 @@
 }
 {
         \end{definition}
+    \end{entry}
+}
+
+
+\newtheorem{structure}{结构}[subsection]
+\NewDocumentEnvironment{str}{omoo}
+{
+    \begin{entry}{green1}{green2}
+        \begin{structure}
+            \textbf{#2\label{str:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
+            \newline
+}
+{
+        \end{structure}
     \end{entry}
 }
 
