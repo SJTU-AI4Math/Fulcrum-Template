@@ -92,11 +92,11 @@
 }
 
 \newtheorem{rulethm}{规则}[section]
-\NewDocumentEnvironment{rule}{omoo}
+\NewDocumentEnvironment{rul}{omoo}
 {
     \begin{entry}{yellow1}{yellow2}
         \begin{rulethm}
-            \textbf{#2\label{rule:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
+            \textbf{#2\label{rul:#1}\IfNoValueTF{#3}{}{\IfBlankTF{#3}{}{ (#3)}}}
             \newline
 }
 {
